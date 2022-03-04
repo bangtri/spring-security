@@ -28,7 +28,7 @@ public class JWTSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests(auth -> auth
                         .antMatchers("/user/**")
                         .authenticated())
-                .authorizeRequests(auth -> auth.anyRequest().permitAll())
+                .authorizeRequests(auth -> auth.antMatchers("/login/**").permitAll())
                 .oauth2ResourceServer().jwt()
                 .jwtAuthenticationConverter(jwtAuthenticationConverter());
     }

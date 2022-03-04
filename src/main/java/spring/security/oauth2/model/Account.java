@@ -8,7 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 import java.util.Objects;
 
@@ -34,8 +34,7 @@ public class Account {
     @Column(name = "last_name")
     private String lastName;
 
-    @NotBlank(message = "Số điện thoại không được để trống")
-    @Size(min = 10, max = 12, message = "Số điện thoại chỉ chứa 10 đến 12 ký tự")
+    @Pattern(regexp="(^$|[0-9]{10})", message = "Số điện thoại chỉ chứa 10 chữ số")
     @Column(name = "phone_number")
     private String phoneNumber;
 

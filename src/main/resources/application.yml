@@ -15,11 +15,16 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: ${auth-server.base-url}/auth/realms/springboot
+        opaquetoken:
+          client-id: admin-cli
+          client-secret: 87d3ec47-1fcc-47f4-8b8f-7ce2d1c97357
+
 
 # rest api keycloak
 rest:
   services:
     user: ${auth-server.base-url}/auth/admin/realms/springboot/users
+    token: ${auth-server.base-url}/auth/realms/springboot/protocol/openid-connect/token
 
 server:
   port: 8081
