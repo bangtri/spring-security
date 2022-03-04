@@ -1,0 +1,25 @@
+auth-server:
+  base-url: http://localhost:8080
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:0312/springboot
+    username: springboot
+    password: springboot
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${auth-server.base-url}/auth/realms/springboot
+
+# rest api keycloak
+rest:
+  services:
+    user: ${auth-server.base-url}/auth/admin/realms/springboot/users
+
+server:
+  port: 8081
