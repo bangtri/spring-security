@@ -34,7 +34,7 @@ public class Account {
     @Column(name = "last_name")
     private String lastName;
 
-    @Pattern(regexp="(^$|[0-9]{10})", message = "Số điện thoại chỉ chứa 10 chữ số")
+    @Pattern(regexp = "(^$|[0-9]{10})", message = "Số điện thoại chỉ chứa 10 chữ số")
     @Column(name = "phone_number")
     private String phoneNumber;
 
@@ -63,5 +63,6 @@ public class Account {
     public int hashCode() {
         return getClass().hashCode();
     }
+
 }
 
